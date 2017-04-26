@@ -1,2 +1,1 @@
-# LeetCode
-LeetCode exercises in JavaScript
+LeetCode coding exercises in JavaScript
