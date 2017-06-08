@@ -5,9 +5,12 @@
 var threeSum = function(nums) {
     let result = [],
         len = nums.length,
-        i = k = 0,
-        j = 1,
+        i = k = j = 0,
         countHash = {};
+
+    if (len < 3) {
+        return [];
+    }
 
     for (k; k < len; k++) {
         let val = nums[k];
@@ -16,13 +19,16 @@ var threeSum = function(nums) {
 
     for (i; i < len; i++) {
         let num1 = nums[i]
-        for (j; j < len; j++) {
+        countHash[num1]--
+        for (j = i + 1; j < len; j++) {
             let num2 = nums[j],
                 difference = -(num1 + num2);
+            countHash[num2]--
 
             if (countHash[difference]) {
                 result.push([num1, num2, difference].sort((a, b) => a - b))
             }
+            countHash[num2]++
         }
     }
 
@@ -35,5 +41,7 @@ var threeSum = function(nums) {
         }
     }
 
-    return result.filter(a => a).reverse();
+    return result.filter(a => a).sort((a, b) =>
+            b[0] - a[0] || b[1] - a[1] || b[2] - a[2]
+        ).reverse();
 };
