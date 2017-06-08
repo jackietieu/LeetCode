@@ -41,7 +41,10 @@ var threeSum = function(nums) {
         }
     }
 
-    return result.filter(a => a).sort((a, b) =>
-            b[0] - a[0] || b[1] - a[1] || b[2] - a[2]
-        ).reverse();
+    result = result.filter(a => a);
+    result = result.sort((a, b) =>
+            a[0] - b[0] || a[1] - b[1] || a[2] - b[2]
+        )
+
+    return result;
 };
