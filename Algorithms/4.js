@@ -34,7 +34,6 @@ var findMedianSortedArrays = function(nums1, nums2) {
     } else if (nums1[numLen1]) {
       nums1.splice(numLen1, 1);
     } else {
-      console.log("here");
       nums2.splice(numLen2, 1);
     }
     length--;
