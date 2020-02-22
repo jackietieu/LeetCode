@@ -17,25 +17,25 @@
  */
 
 var deleteDuplicates = function(head) {
-    let current = head,
-        stall = head;
+  let current = head,
+    stall = head;
 
-    if (head === null) {
-        return [];
-    } else if (head.next === undefined) {
-        return head;
-    }
-
-    while (current.next) {
-        if (current.val !== current.next.val) {
-            stall.next = current.next
-            stall = current.next
-        }
-
-        current = current.next
-    }
-
-    stall.next = null
-
+  if (head === null) {
+    return [];
+  } else if (head.next === undefined) {
     return head;
+  }
+
+  while (current.next) {
+    if (current.val !== current.next.val) {
+      stall.next = current.next;
+      stall = current.next;
+    }
+
+    current = current.next;
+  }
+
+  stall.next = null;
+
+  return head;
 };
